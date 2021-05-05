@@ -1,0 +1,78 @@
+<div style="width: 400px; margin: auto;">
+  <div *ngIf="currentDevice" class="edit-form">
+    <h4>Device</h4>
+    <form>
+      <div class="form-group">
+        <label for="company">Company</label>
+        <input
+          type="text"
+          class="form-control"
+          id="company"
+          [(ngModel)]="currentDevice.company"
+          name="company"
+        />
+      </div>
+      <div class="form-group">
+        <label for="imageurl">Image</label>
+        <input
+          type="text"
+          class="form-control"
+          id="imageurl"
+          [(ngModel)]="currentDevice.imageurl"
+          name="imageurl"
+        />
+      </div>
+      <div class="form-group">
+        <label for="model">Model</label>
+        <input
+          type="text"
+          class="form-control"
+          id="model"
+          [(ngModel)]="currentDevice.model"
+          name="model"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="productid">Product Id</label>
+        <input
+          type="text"
+          class="form-control"
+          id="productid"
+          [(ngModel)]="currentDevice.productid"
+          name="productid"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="warranty">Warranty</label>
+        <input
+          type="text"
+          class="form-control"
+          id="warranty"
+          [(ngModel)]="currentDevice.warranty"
+          name="warranty"
+        />
+      </div>
+
+    </form>
+
+    <button class="badge badge-danger mr-2" (click)="deleteDevice()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success"
+      (click)="updateDevice()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentDevice">
+    <br />
+    <p>Cannot access this Device...</p>
+  </div>
+</div>
