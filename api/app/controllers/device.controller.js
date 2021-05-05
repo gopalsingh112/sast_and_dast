@@ -2,13 +2,12 @@ const db = require("../models");
 const Device = db.devices;
 
 exports.create = (req, res) => {
-    // Validate request
+
     if (!req.body.company) {
       res.status(400).send({ message: "Content can not be empty!" });
       return;
     }
-  
-    // Create a Device
+
     const device = new Device({
       company: req.body.company,
       imageurl: req.body.imageurl,
@@ -17,7 +16,7 @@ exports.create = (req, res) => {
       warranty: req.body.date
     });
   
-    // Save Device in the database
+
     device
       .save(device)
       .then(data => {

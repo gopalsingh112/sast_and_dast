@@ -25,8 +25,6 @@ module.exports = app => {
   router.delete("/", devices.deleteAll);
 
   app.use('/api/devices', router);
-  // router.get('/api/devices', function(req, res, next){
-  //   res.json( "aaaa" );
-  // });
+
 
 };

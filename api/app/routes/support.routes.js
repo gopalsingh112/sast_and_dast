@@ -25,8 +25,6 @@ module.exports = app => {
   router.delete("/", supports.deleteAll);
 
   app.use('/api/supports', router);
-  // router.get('/api/supports', function(req, res, next){
-  //   res.json( "aaaa" );
-  // });
+
 
 };

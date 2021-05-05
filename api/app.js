@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-// const users = require('./routes/users');
 const app = express();
 
 app.use(cors());
@@ -27,13 +26,6 @@ issuer: 'https://csci.us.auth0.com/',
 algorithms: ['RS256']
 });
 
-
-
-// app.get('/',(req,res) => {
-//   res.send('Invalid Endpoint');
-// });
-
-// app.use('/users', users);
 
 const db = require("./app/models");
 
