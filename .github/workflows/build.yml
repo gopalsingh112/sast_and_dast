@@ -2,8 +2,8 @@ name: Sast
 on:
   push:
     branches:
-      - master
-      - main
+      # - master
+      # - main
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
