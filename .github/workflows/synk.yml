@@ -1,22 +1,44 @@
-name: Snyk example
-on:
-  push:
-    branches:
-      - master
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened]
+version: 2 # Synk
+jobs: # a collection of steps
+  build: # runs not using Workflows must have a `build` job as entry point
+    working_directory: ~/ # directory where steps will run
+    steps: # a collection of executable commands
+      - checkout # special step to check out source code to working directory
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - run:
+          name: install-snyk
+          command: 'sudo npm install -g snyk'     
+      - run: # run snyk help - test snyk is installed and working
+          name: snyk-help
+          command: snyk --help
+      - run: # run snyk auth - authenticate snyk use environment variables to add token
+          name: snyk auth
+          command: snyk auth $SNYK_TOKEN
+      - run: # run snyk test - run snyk test
+          name: snyk test
+          command: snyk test
 
-jobs:
-  security:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: snyk/actions/setup@master
-      - uses: actions/setup-go@v1
-        with:
-          go-version: '1.13'
-      - name: Snyk monitor
-        run: snyk test
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+# name: Snyk example
+# on:
+#   push:
+#     branches:
+#       - master
+#       - main
+#   pull_request:
+#     types: [opened, synchronize, reopened]
+
+# jobs:
+#   security:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@master
+#       - uses: snyk/actions/setup@master
+#       - uses: actions/setup-go@v1
+#         with:
+#           go-version: '1.13'
+#       - name: Snyk monitor
+#         run: snyk test
+#         env:
+#           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
