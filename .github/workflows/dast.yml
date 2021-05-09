@@ -2,8 +2,8 @@ name: Dast
 on:
   push:
     branches:
-      - master
-      - main
+      # - master
+      # - main
   pull_request:
     types: [opened, synchronize, reopened]
 

@@ -1,9 +1,8 @@
-version: 2 # Synk
-jobs: # a collection of steps
-  build: # runs not using Workflows must have a `build` job as entry point
-    working_directory: ~/ # directory where steps will run
-    steps: # a collection of executable commands
-      - checkout # special step to check out source code to working directory
+on:
+  push:
+    branches:
+      - master
+      - main
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@latest'
