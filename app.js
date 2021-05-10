@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const app = express();
-const api = "key-22d8378909f952d725fabbaa69c38073";
+// const api = "key-22d8378909f952d725fabbaa69c38073";
 
 app.use(cors());
 
