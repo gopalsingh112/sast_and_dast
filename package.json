@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "express": "*",
-    "mongoose": "*",
+    "mongoose": "5.12.4",
     "bcryptjs": "*",
     "cors": "*",
     "jsonwebtoken": "*",
